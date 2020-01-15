@@ -1,4 +1,3 @@
-
 /*! videojs-transcript - v0.8.1 - 2017-04-21
 * Copyright (c) 2017 Matthew Walsh; Licensed MIT */
 (function (window, videojs) {
@@ -377,7 +376,7 @@ var widget = function (plugin) {
     var timestamp = utils.createEl('span', '-timestamp');
     var text = utils.createEl('span', '-text');
     line.setAttribute('data-begin', cue.startTime);
-    line.setAttribute('tabindex', my._options.tabIndex || 0);
+    line.setAttribute('tabindex', 0);
     timestamp.textContent = utils.secondsToTime(cue.startTime);
     text.innerHTML = cue.text;
     line.appendChild(timestamp);
