@@ -7,6 +7,7 @@
 .transcript-body {
   height: 200px;
   overflow-y: scroll;
+
 }
 
 .transcript-line {
@@ -19,7 +20,7 @@
 .transcript-timestamp {
   position: absolute;
   display: inline-block;
-  color: #333;
+  color:rgb(21, 61, 21);
   width: 50px;
 }
 

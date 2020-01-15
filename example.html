@@ -8,6 +8,8 @@
   <link href="./css/videojs-transcript.css" title="Example 1" rel="stylesheet">
   <link href="./css/videojs-transcript2.css" title="Example 2" rel="alternate stylesheet">
   <link href="./css/videojs-transcript3.css" title="Example 3" rel="alternate stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,27 +29,64 @@
   <script src="./dist/videojs-transcript.js"></script>
   </head>
   <body>
-    <div class="info">
-      <p>
-        You can see the Video.js Transcript plugin in action below.
-        Look at the source of this page to see how to use it with your videos.
-      </p>
-    </div>
-    <div class="video-container">
-      <video id="video"
-             class="video-js vjs-default-skin"
-             height="300"
-             width="600"
-             controls >
-        <p>
-          Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
-        </p>
-        <source src="http://www.openbeelden.nl/files/92/104101.ed_hd.mp4" type="video/mp4">s
-        <track kind="captions" src="https://raw.githubusercontent.com/keshavsethi/Vista/master/captions/captions.en.vtt" srclang="en" label="English" default>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Vista</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+         
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
 
-      </video>
-      <div id="transcript"></div>
-    </div>
+
+
+
+ <div class="video-container">
+      <div class="row">
+        <div class="col-6">
+          <video id="video"
+          class="video-js vjs-default-skin"
+          height="300"
+          width="600"
+          controls >
+     <source src="http://www.openbeelden.nl/files/92/104101.ed_hd.mp4" type="video/mp4">s
+     <track kind="captions" src="https://raw.githubusercontent.com/keshavsethi/Vista/master/captions/captions.en.vtt" srclang="en" label="English" default>
+
+   </video>
+        </div>
+        <div class="col-6"style="padding-top:50px;">
+          <div id="transcript"></div>
+        </div>
+      </div>
+      </div>  
+ 
+
+     
     <script>
         var video = videojs('video').ready(function(){
   
@@ -60,4 +99,7 @@
         });
     </script>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </html>
