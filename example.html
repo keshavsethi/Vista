@@ -9,10 +9,14 @@
   <link href="./css/videojs-transcript2.css" title="Example 2" rel="alternate stylesheet">
   <link href="./css/videojs-transcript3.css" title="Example 3" rel="alternate stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://vjs.zencdn.net/5.16.0/video.js"></script>
+  <script src="./dist/browser/videojs-slides.js"></script>
+  <link href="./dist/browser/videojs-slides.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
+      overflow: hidden ;
     }
     .info {
       background-color: #eee;
@@ -24,7 +28,25 @@
     .video-js {
       margin: 40px auto;
     }
+    #player_video, #slideshow_player {
+      width: 460px;
+      height: 420px;
+      max-width: 460px;
+      max-height: 420px;
+      padding: 4px;
+    }
+
+    #slideshow_player img {
+      max-width: 460px;
+      max-height: 420px;
+    }
+    #slides{
+      position:absolute;
+      right:0px;
+      height:20px;
+    }
   </style>
+  
   <script src="http://vjs.zencdn.net/7.6.0/video.js"></script>
   <script src="./dist/videojs-transcript.js"></script>
   </head>
@@ -75,18 +97,23 @@
           width="600"
           controls >
      <source src="http://www.openbeelden.nl/files/92/104101.ed_hd.mp4" type="video/mp4">s
-     <track kind="captions" src="https://raw.githubusercontent.com/keshavsethi/Vista/master/captions/captions.en.vtt" srclang="en" label="English" default>
-
+     <track kind="captions" src="https://raw.githubusercontent.com/keshavsethi/Vista/master/captions/captions.en.vtt" srclang="EN" label="English" default>
+     <track kind="captions" src="https://raw.githubusercontent.com/keshavsethi/Vista/master/captions/captions.sv.vtt" srclang="SL" label="Slides" >
    </video>
+   <slides style="right:100px; "></slides>
         </div>
         <div class="col-6"style="padding-top:50px;">
-          <div id="transcript"></div>
+          <slides id="slides"></slides>  
+      
+        
         </div>
+        <div id="transcript"></div>
       </div>
-      </div>  
- 
-
-     
+      </div>
+    
+      <slides style="right:10px; "></slides>  
+  
+      <script src="./dist/browser/videojs-slides.js"></script>
     <script>
         var video = videojs('video').ready(function(){
   
@@ -97,9 +124,22 @@
             var transcriptContainer = document.querySelector('#transcript');
             transcriptContainer.appendChild(transcript.el());
         });
-    </script>
+
+        (function(window, videojs) {
+      var player = window.player = videojs('video');
+      var slides = [
+        {url : 'img/img1.jpg',time : 1},
+        {url : 'img/img2.jpg',time : 5},
+      ];
+
+      player.slides({slides: slides});
+    }(window, window.videojs));
+
+
+</script>
 </body>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </html>
